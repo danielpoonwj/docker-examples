@@ -1,0 +1,22 @@
+<div>
+  <h3>Input</h3>
+  <%= form_with(url: "/demo", method: "get") do %>
+    <%= label_tag(:original_image_url, "Image URL:") %>
+    <%= text_field_tag(:original_image_url) %>
+    <%= submit_tag("Submit") %>
+  <% end %>
+</div>
+
+<% if @original_image_url.present? %>
+<div>
+  <h3>Original Image</h3>
+  <img src="<%= @original_image_url %>">
+</div>
+<% end %>
+
+<% if @new_image_url.present? %>
+<div>
+  <h3>New Image</h3>
+  <img src="<%= @new_image_url %>">
+</div>
+<% end %>

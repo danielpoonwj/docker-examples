@@ -8,6 +8,7 @@ RUN apt-get -qq update && \
       build-essential \
       sqlite3 \
       libsqlite3-dev \
+      imagemagick \
     && rm -rf /var/lib/apt/lists/*
 
 # Install gems
