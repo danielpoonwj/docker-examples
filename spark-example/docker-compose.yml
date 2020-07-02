@@ -1,8 +1,10 @@
-version: '2'
+version: '3.7'
 
 services:
   spark-master:
     image: docker.io/bitnami/spark:3-debian-10
+    volumes:
+      - ./data:/tmp/data
     environment:
       - SPARK_MODE=master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
@@ -11,8 +13,11 @@ services:
       - SPARK_SSL_ENABLED=no
     ports:
       - '8080:8080'
+
   spark-worker:
     image: docker.io/bitnami/spark:3-debian-10
+    volumes:
+      - ./data:/tmp/data
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
